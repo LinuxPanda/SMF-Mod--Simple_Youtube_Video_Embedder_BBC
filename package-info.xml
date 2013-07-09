@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE package-info SYSTEM "http://www.simplemachines.org/xml/package-info">
+
+<package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
+
+	<id>xPandax:Simple_Youtube_Video_Embedder_BBC</id>
+	<name>Simple Youtube Video Embedder/BBC</name>
+	<type>modification</type>
+	<version>1.0</version>
+
+	<install for="2.0 - 2.0.99">
+		<readme parsebbc="true">readme.txt</readme>
+		<modification type="file">modifications.xml</modification>
+	</install>
+
+	<uninstall for="2.0 - 2.0.99">
+		<modification type="file" reverse="true">modifications.xml</modification>
+	</uninstall>
+
+</package-info>

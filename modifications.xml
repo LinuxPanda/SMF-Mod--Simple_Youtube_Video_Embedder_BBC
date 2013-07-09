@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
+
+<modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
+
+	<id>xPandax:Simple_Youtube_Video_Embedder_BBC</id>
+	<version>1.0</version>
+
+	<file name="$sourcedir/Subs.php">
+		<operation>
+			<search position="before"><![CDATA[
+			array(
+				'tag' => 'url',
+				'type' => 'unparsed_equals',
+				'before' => '<a href="$1" class="bbc_link" target="_blank">',
+				'after' => '</a>',
+				'validate' => create_function('&$tag, &$data, $disabled', '
+					if (strpos($data, \'http://\') !== 0 && strpos($data, \'https://\') !== 0)
+						$data = \'http://\' . $data;
+				'),
+				'disallow_children' => array('email', 'ftp', 'url', 'iurl'),
+				'disabled_after' => ' ($1)',
+			),]]></search>
+
+			<add><![CDATA[
+			array(
+				'tag' => 'youtube',
+				'type' => 'unparsed_content',
+				'content' => '<iframe style="border:0;" width="600" height="400" src="http://www.youtube.com/embed/$1" allowfullscreen></iframe>',
+				'validate' => create_function('&$tag, &$data, $disabled', '
+				if (isset($disabled[\'url\']))
+					$tag[\'content\'] = \'$1\';
+				$pattern = \'~(?:http|https|)(?::\/\/|)(?:www.|)(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[a-z0-9;:@?&%=+\/\$_.-]*~i\';
+				if (preg_match($pattern, $data, $matches))
+					$data = $matches[1];'),
+				'disabled_content' => '<a href="$1" target="_blank">$1</a>',
+			),]]></add>
+		</operation>
+
+		<operation>
+					<search position="replace"><![CDATA[
+					// Parse any URLs.... have to get rid of the @ problems some things cause... stupid email addresses.
+					if (!isset($disabled['url']) && (strpos($data, '://') !== false || strpos($data, 'www.') !== false) && strpos($data, '[url') === false)
+					{
+						// Switch out quotes really quick because they can cause problems.
+						$data = strtr($data, array('&#039;' => '\'', '&nbsp;' => $context['utf8'] ? "\xC2\xA0" : "\xA0", '&quot;' => '>">', '"' => '<"<', '&lt;' => '<lt<'));
+
+						// Only do this if the preg survives.
+						if (is_string($result = preg_replace(array(
+							'~(?<=[\s>\.(;\'"]|^)((?:http|https)://[\w\-_%@:|]+(?:\.[\w\-_%]+)*(?::\d+)?(?:/[\w\-_\~%\.@!,\?&;=#(){}+:\'\\\\]*)*[/\w\-_\~%@\?;=#}\\\\])~i',
+							'~(?<=[\s>\.(;\'"]|^)((?:ftp|ftps)://[\w\-_%@:|]+(?:\.[\w\-_%]+)*(?::\d+)?(?:/[\w\-_\~%\.@,\?&;=#(){}+:\'\\\\]*)*[/\w\-_\~%@\?;=#}\\\\])~i',
+							'~(?<=[\s>(\'<]|^)(www(?:\.[\w\-_]+)+(?::\d+)?(?:/[\w\-_\~%\.@!,\?&;=#(){}+:\'\\\\]*)*[/\w\-_\~%@\?;=#}\\\\])~i'
+						), array(
+							'[url]$1[/url]',
+							'[ftp]$1[/ftp]',
+							'[url=http://$1]$1[/url]'
+						), $data)))
+							$data = $result;
+
+						$data = strtr($data, array('\'' => '&#039;', $context['utf8'] ? "\xC2\xA0" : "\xA0" => '&nbsp;', '>">' => '&quot;', '<"<' => '"', '<lt<' => '&lt;'));
+					}]]></search>
+
+					<add><![CDATA[
+					// Parse any URLs.... have to get rid of the @ problems some things cause... stupid email addresses.
+					if (!isset($disabled['url']) && (strpos($data, '://') !== false || strpos($data, 'www.') !== false) && strpos($data, '[url') === false)
+					{
+						// Switch out quotes really quick because they can cause problems.
+						$data = strtr($data, array('&#039;' => '\'', '&nbsp;' => $context['utf8'] ? "\xC2\xA0" : "\xA0", '&quot;' => '>">', '"' => '<"<', '&lt;' => '<lt<'));
+
+						// Only do this if the preg survives.
+						//First line in each array added by "Simple_Youtube_Video_Embed_BBC" mod to parse youtube videos automatically
+						if (is_string($result = preg_replace(array(
+							'~(?:http|https|)(?::\/\/|)(?:www.|)(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[a-z0-9;:@?&%=+\/\$_.-]*~i',
+							'~(?<=[\s>\.(;\'"]|^)((?:http|https)://[\w\-_%@:|]+(?:\.[\w\-_%]+)*(?::\d+)?(?:/[\w\-_\~%\.@!,\?&;=#(){}+:\'\\\\]*)*[/\w\-_\~%@\?;=#}\\\\])~i',
+							'~(?<=[\s>\.(;\'"]|^)((?:ftp|ftps)://[\w\-_%@:|]+(?:\.[\w\-_%]+)*(?::\d+)?(?:/[\w\-_\~%\.@,\?&;=#(){}+:\'\\\\]*)*[/\w\-_\~%@\?;=#}\\\\])~i',
+							'~(?<=[\s>(\'<]|^)(www(?:\.[\w\-_]+)+(?::\d+)?(?:/[\w\-_\~%\.@!,\?&;=#(){}+:\'\\\\]*)*[/\w\-_\~%@\?;=#}\\\\])~i'
+						), array(
+							'[youtube]$1[/youtube]',
+							'[url]$1[/url]',
+							'[ftp]$1[/ftp]',
+							'[url=http://$1]$1[/url]'
+						), $data)))
+							$data = $result;
+
+						$data = strtr($data, array('\'' => '&#039;', $context['utf8'] ? "\xC2\xA0" : "\xA0" => '&nbsp;', '>">' => '&quot;', '<"<' => '"', '<lt<' => '&lt;'));
+					}]]></add>
+		</operation>
+	</file>
+	
+	<file name="$sourcedir/Post.php">
+		<operation>
+			<search position="replace"><![CDATA['<img>']]></search>
+			<add><![CDATA['<img><object><embed><iframe>']]></add>
+		</operation>
+
+		<operation>
+			<search position="replace"><![CDATA['<img>']]></search>
+			<add><![CDATA['<img><object><embed><iframe>']]></add>
+		</operation>
+	</file>
+
+</modification>
