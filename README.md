@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 *****This is a "modification package" for Simple Machines Forum version 2.0.x*****
 
 #####Simple_Youtube_Video_Embedder_BBC
@@ -10,7 +10,3 @@ Since youtube video links are automatically parsed & displayed, there is no need
 In addition to these features, this mod supports the following format also which was used by some old mods.
 
 [youtube]yVpbFMhOAwE[/youtube]
-=======
-SMF-Mod--Simple_Youtube_Video_Embedder_BBC
-==========================================
->>>>>>> 49b7afd2f5ae7b18781c5d484b07cee47ae95eee
