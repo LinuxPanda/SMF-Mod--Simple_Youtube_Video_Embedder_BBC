@@ -4,7 +4,7 @@
 Mod by xPandax | [url=http://custom.simplemachines.org/mods/index.php?action=profile;u=158159]Other Mods[/url] by xPandax
 [/center]
 [hr]
-[center][url]Link to Mod[/url] | [url]Support Thread for this Mod[/url][/center]
+[center][url=http://custom.simplemachines.org/mods/index.php?mod=3751]Link to Mod[/url] | [url]Support Thread for this Mod[/url][/center]
 
 
 [color=purple][size=12pt][b]Features[/b][/size][/color]
