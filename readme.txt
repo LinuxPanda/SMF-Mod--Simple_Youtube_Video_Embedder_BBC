@@ -4,7 +4,7 @@
 Mod by xPandax | [url=http://custom.simplemachines.org/mods/index.php?action=profile;u=158159]Other Mods[/url] by xPandax
 [/center]
 [hr]
-[center][url=http://custom.simplemachines.org/mods/index.php?mod=3751]Link to Mod[/url] | [url]Support Thread for this Mod[/url][/center]
+[center][url=http://custom.simplemachines.org/mods/index.php?mod=3751]Link to Mod[/url] | [url=http://www.simplemachines.org/community/index.php?topic=507505.0]Support Thread for this Mod[/url][/center]
 
 
 [color=purple][size=12pt][b]Features[/b][/size][/color]
@@ -18,12 +18,12 @@ Mod by xPandax | [url=http://custom.simplemachines.org/mods/index.php?action=pro
 [/li]
 [li]It works on all browsers (with/without flash). If flash player is not available, then this mod displays the videos using HTML5.[/li]
 [li]If you were using some other mod that used 'youtube' tags, then this mod should parse & display those youtube links too.[/li]
-[li]This mod does 'not' add any extra tables in the database or install any extra files, its light weight & pretty fast. :)[/li]
+[li]This mod does 'not' add any extra tables in the database or install any extra files, so its light weight & pretty fast. :)[/li]
 [/list]
 
 
 [color=purple][size=12pt][b]Who should use this Mod[/b][/size][/color]
-If you are one of among the people who use only youtube videos in your forum then this is the mod that you're looking for.
+If you are one of the people who use only youtube videos in your forum then this is the mod that you're looking for.
 
 
 [color=purple][size=12pt][b]Why you should use this Mod[/b][/size][/color]
@@ -47,7 +47,7 @@ NA.
 
 
 [color=purple][size=12pt][b]Support[/b][/size][/color]
-If you need support with this mod, please use the [url]Support Thread for this Mod[/url].
+If you need support with this mod, please use the [url=http://www.simplemachines.org/community/index.php?topic=507505.0]Support Thread for this Mod[/url].
 
  
 [color=purple][size=12pt][b]Changelog[/b][/size][/color]
