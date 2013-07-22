@@ -21,7 +21,6 @@ Mod by xPandax | [url=http://custom.simplemachines.org/mods/index.php?action=pro
 [li]This mod does 'not' add any extra tables in the database or install any extra files, so its light weight & pretty fast. :)[/li]
 [/list]
 
-
 [color=purple][size=12pt][b]Who should use this Mod[/b][/size][/color]
 If you are one of the people who use only youtube videos in your forum then this is the mod that you're looking for.
 
@@ -52,6 +51,11 @@ If you need support with this mod, please use the [url=http://www.simplemachines
  
 [color=purple][size=12pt][b]Changelog[/b][/size][/color]
 [b]v1.0[/b] - Initial release.
+[b]v1.1[/b] - Just a maintenance release.
+[list]
+[li]Improved the edits done by the package to fix/minimise the clash with other mods during install/uninstall operations.[/li]
+[li]No changes in the core codes that parse youtube videos[/li]
+[/list]
 
 
 [hr]
