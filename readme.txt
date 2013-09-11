@@ -30,7 +30,13 @@ Since this mod does does 'not' add any extra tables in the database or install a
 
 
 [color=purple][size=12pt][b]How-To[/b][/size][/color]
-Youtube video links are parsed & displayed automatically.
+Youtube video links are parsed & displayed automatically. Just post the youtube links as plain text.
+
+Youtube links wrapped within [nobbc][url][/nobbc] tags won't be parsed as videos. If you wrap a link within [nobbc][url][/nobbc] tags, then it means you are forcing youtube links to be displayed as url.
+
+[color=green][b]Correct:[/b][/color] Hi, checkout this youtube video, [nobbc]http://www.youtube.com/watch?v=yVpbFMhOAwE[/nobbc]
+
+[color=red][b]Incorrect:[/b][/color] Hi, checkout this youtube video, [nobbc][url]http://www.youtube.com/watch?v=yVpbFMhOAwE[/url][/nobbc]
 
 
 [color=purple][size=12pt][b]Supported Themes[/b][/size][/color]
@@ -58,8 +64,7 @@ If you need support with this mod, please use the [url=http://www.simplemachines
 [/list]
 
 
-[hr]
-[center]
-[url=http://creativecommons.org/licenses/by-sa/3.0/deed.en_US][img]http://i.creativecommons.org/l/by-sa/3.0/88x31.png[/img][/url]
-This work is licensed under a [url=http://creativecommons.org/licenses/by-sa/3.0/deed.en_US]Creative Commons Attribution-ShareAlike 3.0 Unported License[/url].
+[hr][center][color=purple][size=14pt][b]License[/b][/size][/color]
+
+This is free and unencumbered public domain software. For more information, see [url=http://unlicense.org/]http://unlicense.org/[/url] or the accompanying UNLICENSE file.
 [/center]
